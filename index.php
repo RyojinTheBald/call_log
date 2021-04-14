@@ -1,5 +1,5 @@
 <?php
-include("call_log.php");
+require("call_log.php");
 
 $limit = $_REQUEST['limit'] ?? 10;
 $offset = $_REQUEST['offset'] ?? 0;

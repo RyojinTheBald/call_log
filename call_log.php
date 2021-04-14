@@ -1,4 +1,5 @@
 <?php
+require("config.php");
 
 class CallLog
 {
@@ -6,7 +7,7 @@ class CallLog
 
     function __construct() 
     {
-        $this->db = mysqli_connect("localhost", "call_log", "call_log", "call_log");
+        $this->db = mysqli_connect(db_host, db_user, db_pass, db_name);
         $this->create_tables();
     }
 
@@ -161,7 +162,6 @@ class CallLog
         $CallId = $this->db->real_escape_string($CallId);
 
         $sql = sprintf("UPDATE `call_header` SET `deleted`=TRUE WHERE `CallId`='%u'", $CallId);
-        // $sql = sprintf("DELETE FROM `call_header` WHERE `CallId`='%s'", $CallId);
         $res = $this->db->query($sql);
         if (!$res)
             die('Error: '. $this->db->error);

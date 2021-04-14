@@ -1,5 +1,5 @@
 <?php
-include ("call_log.php");
+require("call_log.php");
 
 $detail = $call_log->get_detail($_REQUEST['id']);
 

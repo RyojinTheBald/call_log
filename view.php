@@ -1,6 +1,5 @@
 <?php
-include ("call_log.php");
-
+require("call_log.php");
 
 if(count($_POST) > 0)
 {

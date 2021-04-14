@@ -1,5 +1,5 @@
 <?php
-include ("call_log.php");
+require("call_log.php");
 
 $call = $call_log->get_call($_REQUEST['id']);
 if(!$call)
