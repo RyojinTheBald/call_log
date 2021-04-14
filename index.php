@@ -8,7 +8,8 @@ $sql = "SELECT * FROM `call_header` WHERE `deleted`=FALSE ".
     (isset($_REQUEST['UserName']) && $_REQUEST['UserName'] ? "AND `UserName`='". $call_log->db->real_escape_string($_REQUEST['UserName'])."' " : "").
     (isset($_REQUEST['CallId']) && $_REQUEST['CallId'] ? "AND `CallId`='". $call_log->db->real_escape_string($_REQUEST['CallId'])."' " : "").
     (isset($_REQUEST['dateFrom']) && $_REQUEST['dateFrom'] ? "AND `Date`>='". $call_log->db->real_escape_string($_REQUEST['dateFrom'])."' " : "").
-    (isset($_REQUEST['dateTo']) && $_REQUEST['dateTo'] ? "AND `Date`<='". $call_log->db->real_escape_string($_REQUEST['dateTo'])."' " : "");
+    (isset($_REQUEST['dateTo']) && $_REQUEST['dateTo'] ? "AND `Date`<='". $call_log->db->real_escape_string($_REQUEST['dateTo'])."' " : "").
+    "LIMIT ".intval($limit)." OFFSET ".intval($offset);
 
 $res = $call_log->db->query($sql);
 if (!$res)
